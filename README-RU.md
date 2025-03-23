@@ -25,7 +25,7 @@ $ sudo make install
 Для выполнения частотного анализа данных `stdin` запустите:
 
 ```bash
-$ freq [< input_file [> output_file]]`
+$ freq [< input_file [> output_file]]
 ```
 
 * `< input_file` - чтение данных из файла `input_file` и вывод в консоль (`stdin`);

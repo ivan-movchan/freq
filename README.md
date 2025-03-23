@@ -25,7 +25,7 @@ $ sudo make install
 To perform frequency analysis of `stdin` data:
 
 ```bash
-$ freq [< input_file [> output_file]]`
+$ freq [< input_file [> output_file]]
 ```
 
 * `< input_file` - read data from `input_file` file and write into console (`stdin`);
