@@ -2,7 +2,7 @@
 
 [English](README.md) / [Русский](README-RU.md)
 
-A tiny utility that performs frequency analysis on `stdin` (console input stream) data byte by byte.
+A tiny utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
 
 ### Installation
 
@@ -22,7 +22,7 @@ $ sudo make install
 
 ### Usage
 
-To perform frequency analysis on `stdin` data:
+To perform frequency analysis of `stdin` data:
 
 ```bash
 $ freq [< input_file [> output_file]]`
@@ -39,7 +39,7 @@ $ freq -v
 
 ### Configuration
 
-The default max. char value (and also the count of chars being analyzed by freq) is set to `UCHAR_MAX` and is defined in `MAX_CHAR` constant. You can change the constant by editing the source code and recompiling the program or by defining `MAX_CHAR` in compiler flags (i. e. `-DMAX_CHAR=YOUR_VALUE`).
+The default maximum char value (and also the count of chars being analyzed by freq) is set to `UCHAR_MAX` and is defined by `MAX_CHAR` constant. You can change the value by editing the source code and recompiling the program or by defining `MAX_CHAR` with your own value in compiler flags (i. e. `-DMAX_CHAR=YOUR_VALUE`).
 
 ### Authors
 
