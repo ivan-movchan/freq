@@ -1,8 +1,9 @@
-![freq](logo.png)
+![freq](logo.png#gh-light-mode-only)
+![freq](logo-dark.png#gh-dark-mode-only)
 
 [English](README.md) / [Русский](README-RU.md)
 
-A tiny utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
+A tiny console utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
 
 ### Installation
 
@@ -28,8 +29,8 @@ To perform frequency analysis of `stdin` data:
 $ freq [< input_file [> output_file]]
 ```
 
-* `< input_file` - read data from `input_file` file and write into console (`stdin`);
-* `> output_file` - write data from `stdout` (console output stream) to `output_file` file.
+* `< input_file` - transfer data from `input_file` to `stdin` (console input stream);
+* `> output_file` - transfer data from `stdout` (console output stream) to `output_file`.
 
 To display program version and exit:
 
