@@ -3,7 +3,7 @@
 
 [English](README.md) / [Русский](README-RU.md)
 
-A tiny console utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
+**freq** is a tiny console utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
 
 ### Installation
 
