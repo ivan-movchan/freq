@@ -10,8 +10,8 @@
 * Added build targets for Windows and GNU/Linux systems.
   See `Makefile` for details.
 * Added more information about program licensing.
-* Program configuration code is moved to `config.def.h`.
-* Created CHANGELOG\* files for recording a program history.
+* Moved program configuration code to `config.def.h` file.
+* Created CHANGELOG\* files for recording version history.
 * Improved README.
 * Updated code style.
 * Compiled with GCC 12.2.0 and MinGW-w64 12.2.0.
