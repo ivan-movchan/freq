@@ -65,7 +65,7 @@ $ freq [-pv] [< input_file]
 
 ### История
 
-История программы описана в файле [CHANGELOG_RU.md](CHANGELOG_RU.md).
+История программы описана в файле [CHANGELOG-RU.md](CHANGELOG-RU.md).
 
 ### Лицензия
 
