@@ -1,31 +1,38 @@
-// See LICENSE file for copyright and licensing details.
+/*
+ * Copyright (c) 2025 Ivan Movchan <ivan.movchan.07@gmail.com>
+ *
+ * This file is a part of freq.
+ *
+ * freq is free software released under the terms of MIT License.
+ * See LICENSE file for further details.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "config.h"
+
 #define VERSION      "1.2"
 #define YEARS        "2025"
 #define AUTHOR       "Ivan Movchan <ivan.movchan.07@gmail.com>"
 #define HOMEPAGE     "https://github.com/ivan-movchan/freq"
-
-const int  MAX_BYTE = 256;
-
-const char *DISPLAY_FORMAT_BYTE       = "0x%02X\t";
-const char *DISPLAY_FORMAT_COUNT      = "%d";
-const char *DISPLAY_FORMAT_PERCENTAGE = "\t\t%.2f%%";
-
-const char *LOW_ASCII_BYTES[] = {
-	"NUL", "SOH", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL",
-	" BS", " HT", " LF", " VT", " FF", " CR", " SO", " SI",
-	"DLE", "DC1", "DC2", "DC3", "DC4", "NAK", "SYN", "ETB",
-	"CAN", " EM", "SUB", "ESC", " FS", " GS", " RS", " US",
-	" SP"
-};
+#define LICENSE      "MIT License"
 
 void usage()
 {
 	puts("Usage: freq [-pv] [< input_file]");
+	exit(EXIT_SUCCESS);
+}
+
+void version()
+{
+	printf(
+		"freq %s — Copyright (C) %s %s.\n"
+		"freq is free software released under the terms of %s.\n"
+		"%s\n",
+		VERSION, YEARS, AUTHOR, LICENSE, HOMEPAGE
+	);
 	exit(EXIT_SUCCESS);
 }
 
@@ -43,8 +50,7 @@ int main(int argc, char** argv)
 			}
 			else if (!strcmp(argv[i], "-v"))
 			{
-				printf("freq %s\nCopyright (C) %s %s\n%s\n", VERSION, YEARS, AUTHOR, HOMEPAGE);
-				return EXIT_SUCCESS;
+				version();	
 			}
 			else
 			{
@@ -53,13 +59,28 @@ int main(int argc, char** argv)
 		};
 	};
 
-	int counts[MAX_BYTE], len = 0;
+	int  counts[MAX_BYTE];
+	int  len = 0;
+	char c = '\0';
+
 	memset(counts, 0, (MAX_BYTE * sizeof(counts[0])));
 
 	while (!feof(stdin))
 	{
-		counts[fgetc(stdin)]++;
+		c = fgetc(stdin);
 		len++;
+
+		if (c < MAX_BYTE)
+		{
+			counts[c]++;
+		}
+		else
+		{
+			fprintf(stderr, DISPLAY_FORMAT_BYTE, c);
+			fputs(" is greater than ", stderr);
+			fprintf(stderr, DISPLAY_FORMAT_BYTE, MAX_BYTE);
+			fputs(" — skipping.", stderr);
+		};
 	};
 
 	len -= ((len > 1) ? 1 : 0);
@@ -69,9 +90,11 @@ int main(int argc, char** argv)
 		if (counts[i] > 0)
 		{
 			printf(DISPLAY_FORMAT_BYTE, i);
-			printf("\t");
 			printf(DISPLAY_FORMAT_COUNT, counts[i]);
-			printf((display_percentage ? DISPLAY_FORMAT_PERCENTAGE : ""), (counts[i] * 100.0 / len));
+			printf(
+				(display_percentage ? DISPLAY_FORMAT_PERCENTAGE : ""),
+			    (counts[i] * 100.0 / len)
+			);
 			puts("");
 		};
 	};
