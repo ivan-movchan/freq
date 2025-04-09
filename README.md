@@ -3,49 +3,67 @@
 
 [English](README.md) / [Русский](README-RU.md)
 
-**freq** is a tiny console utility that performs frequency analysis of `stdin` (console input stream) data byte by byte.
+**freq** is a simple and minimalistic frequency analysis utility.
 
 ### Installation
 
-#### Dependencies
+Pre-compiled binaries for Windows and GNU/Linux systems are available
+for download in ["Releases"](https://github.com/ivan-movchan/freq/releases).
 
-* `gcc`, `clang` or any other C compiler;
-* `make`.
+For building from sources install any C compiler (GCC, Clang, etc.)
+and GNU make, then edit `Makefile` if need and run `make`.
+It is recommended to build in *NIX environment like MSYS2,
+Windows Subsystem for Linux (WSL) or real *NIX system.
 
-Edit `Makefile` to match your local setup (compilers, libraries, etc.) if need.
-
-#### Build instructions
-
-```bash
-$ make
-$ sudo make install
-```
+You can run `make install` to install freq and `make uninstall` to uninstall it.
+(Actual for *NIX systems, root privileges are required.)
 
 ### Usage
 
-To perform frequency analysis of `stdin` data:
-
 ```bash
-$ freq [< input_file [> output_file]]
+$ freq [-pv] [< input_file]
 ```
 
-* `< input_file` - transfer data from `input_file` to `stdin` (console input stream);
-* `> output_file` - transfer data from `stdout` (console output stream) to `output_file`.
-
-To display program version and exit:
-
-```
-$ freq -v
-```
+* `-p` — additionally show percentage frequency values.
+* `-v` — display program version and exit.
+* `< input_file` - process data from `input_file`.
 
 ### Configuration
 
-The default maximum char value (and also the count of chars being analyzed by freq) is set to `UCHAR_MAX` and is defined by `MAX_CHAR` constant. You can change the value by editing the source code and recompiling the program or by defining `MAX_CHAR` with your own value in compiler flags (i. e. `-DMAX_CHAR=YOUR_VALUE`).
+The configuration is done by editing `config.h` file and recompiling the program
+from sources.
 
 ### Authors
 
 freq is written by [Ivan Movchan](https://github.com/ivan-movchan).
 
+The coincidence with
+[freq utility from Plan 9 project](https://p9f.org/magic/man2html/1/freq)
+is a pure accident, no more.
+
+### Contributing
+
+Want to make the project it better?
+
+* Feel free to fork the repository, improve the program and make a pull request
+  to accept your code to the project. Read the source code
+  for better understanding coding style
+  (max. 80 symbols per line, 4 spaces indent, etc.).
+
+* Do not hesitate to report bugs/crashes and suggest new ideas
+  using ["Issues"](https://github.com/ivan-movchan/freq/issues)
+  or by contacting the developer.
+
+**IMPORTANT:** Before reporting a bug/crash make sure you are using the latest
+program version — your problem may have been already fixed in latest version.
+When reporting a bug/crash, also tell the operating system version
+(i. e. *Windows 7 x64*) and error messages the program displays.
+
+### History
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
 ### License
 
-See [LICENSE](LICENSE) for copyright and licensing details.
+freq is free software released under the terms of MIT License.
+See [LICENSE](LICENSE) file for further details.
