@@ -43,7 +43,7 @@ is a pure accident, no more.
 
 ### Contributing
 
-Want to make the project it better?
+Want to make the project better?
 
 * Feel free to fork the repository, improve the program and make a pull request
   to accept your code to the project. Read the source code
@@ -54,10 +54,10 @@ Want to make the project it better?
   using ["Issues"](https://github.com/ivan-movchan/freq/issues)
   or by contacting the developer.
 
-**IMPORTANT:** Before reporting a bug/crash make sure you are using the latest
-program version — your problem may have been already fixed in latest version.
-When reporting a bug/crash, also tell the operating system version
-(i. e. *Windows 7 x64*) and error messages the program displays.
+  Before reporting a bug/crash make sure you are using the latest
+  program version — your problem may have been already fixed in latest version.
+  When reporting a bug/crash, also tell the operating system version
+  (i. e. *Windows 7 x64*) and error messages the program displays.
 
 ### History
 
